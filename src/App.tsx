@@ -3,6 +3,15 @@ import Header from './ui/Header';
 import WorkoutList from './pages/WorkoutList';
 import WorkoutDetail from './pages/WorkoutDetails';
 
+/**
+ * App Component
+ *
+ * Defines the main routes for the application:
+ * - "/" shows the workout list
+ * - "/workout/:id" shows workout details
+ * - "*" redirects unknown routes back to "/"
+ */
+
 function App() {
   return (
     <>

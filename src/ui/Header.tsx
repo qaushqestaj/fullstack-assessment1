@@ -1,5 +1,12 @@
 import './Header.css';
 
+/**
+ * Header Component
+ *
+ * Displays the app logo and a welcome message.
+ * It is shown at the top of the page.
+ */
+
 function Header() {
   return (
     <header className="header">

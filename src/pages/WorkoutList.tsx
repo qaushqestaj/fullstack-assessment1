@@ -7,23 +7,30 @@ import WorkoutCard from '../ui/WorkoutCard';
 import Pagination from '../ui/Pagination';
 import { PAGE_SIZE } from '../utils/constans';
 
+/**
+ * WorkoutList Component
+ *
+ * Displays a paginated, filterable list of workouts.
+ * Filters by selected month and selected categories.
+ */
+
 function WorkoutList() {
   const [workouts, setWorkouts] = useState<Workout[]>([]);
   const [selectedMonth, setSelectedMonth] = useState<string>('');
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
 
-  // load data once
+  // Load workouts data on first render
   useEffect(() => {
     setWorkouts(workoutsData as Workout[]);
   }, []);
 
-  // whenever filters change, reset to first page
+  // Reset to page 1 when filters change
   useEffect(() => {
     setCurrentPage(1);
   }, [selectedMonth, selectedCategories]);
 
-  // filter by month
+  // Filter workouts by selected month
   const monthFiltered = workouts.filter((w) => {
     if (!selectedMonth) return true;
     const [year, month] = selectedMonth.split('-').map(Number);
@@ -31,7 +38,7 @@ function WorkoutList() {
     return d.getFullYear() === year && d.getMonth() + 1 === month;
   });
 
-  // filter by categories
+  // Further filter by selected categories
   const categoryFiltered = monthFiltered.filter((w) => {
     if (selectedCategories.length === 0) return true;
     return selectedCategories.includes(w.category);
@@ -40,7 +47,7 @@ function WorkoutList() {
   const total = categoryFiltered.length;
   const totalPages = Math.ceil(total / PAGE_SIZE);
 
-  // slice for current page
+  // Paginate filtered workouts
   const pageWorkouts = categoryFiltered.slice(
     (currentPage - 1) * PAGE_SIZE,
     currentPage * PAGE_SIZE

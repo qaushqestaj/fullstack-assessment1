@@ -9,12 +9,21 @@ interface FiltersProps {
 
 const categories = ['c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7'];
 
+/**
+ * Filters Component
+ *
+ * Allows users to filter workouts by:
+ * - Start month (dropdown)
+ * - Categories (multi-select checkboxes)
+ */
+
 function Filters({
   selectedMonth,
   onMonthChange,
   selectedCategories,
   onCategoriesChange,
 }: FiltersProps) {
+  // Generate the next 12 months as dropdown options
   const months = Array.from({ length: 12 }, (_, i) => {
     const date = new Date();
     date.setMonth(date.getMonth() + i);
@@ -24,6 +33,7 @@ function Filters({
     };
   });
 
+  // Toggle category in/out of selectedCategories
   const handleCategoryToggle = (cat: string) => {
     if (selectedCategories.includes(cat)) {
       onCategoriesChange(selectedCategories.filter((c) => c !== cat));

@@ -4,12 +4,21 @@ import type { Workout } from '../types/workout';
 import HideText from '../features/HideText';
 import './WorkoutDetails.css';
 
-function WorkoutDetail() {
-  const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
+/*
+ * WorkoutDetail Component
+ *
+ * Displays the details of a single workout based on the `id` from the route.
+ * Includes a back button, formatted start date, and description using an accordion.
+ */
 
+function WorkoutDetail() {
+  const { id } = useParams<{ id: string }>(); // Get workout ID from URL
+  const navigate = useNavigate(); // For navigating back
+
+  // Find workout by ID
   const workout = (workoutsData as Workout[]).find((w) => w.id === id);
 
+  // Handle not found
   if (!workout) {
     return (
       <div className="detail-container">

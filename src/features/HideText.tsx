@@ -3,8 +3,15 @@ import './HideText.css';
 
 interface HideTextProps {
   text: string;
-  maxChars?: number;
+  maxChars?: number; // Optional character limit before truncation (default: 200)
 }
+
+/**
+ * Accordion Component
+ *
+ * Truncates long text and toggles between collapsed and full view.
+ * Useful for showing previews of long content (e.g., descriptions, comments).
+ */
 
 function Accordion({ text, maxChars = 200 }: HideTextProps) {
   const [open, setOpen] = useState(false);
