@@ -1,0 +1,13 @@
+.workout-card {
+  display: block;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: white;
+  text-decoration: none;
+  color: black;
+}
+
+.workout-card:hover {
+  background: #f9f9f9;
+}

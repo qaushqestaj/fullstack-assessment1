@@ -1,0 +1,15 @@
+.header {
+  flex: auto;
+  justify-content: center;
+  align-items: center;
+  background-color: #166fc7;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.logo {
+  height: 100px;
+  width: 100px;
+}

@@ -1,0 +1,21 @@
+.accordion {
+  margin-bottom: 16px;
+}
+
+.accordion-content {
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.accordion-toggle {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+}
+
+.accordion-toggle:hover {
+  text-decoration: underline;
+}
